@@ -48,6 +48,7 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
 # yarn
-echo 'export PATH="$HOME/.yarn/bin:$PATH"' >> ~/.zshrc
-
 export PATH="$HOME/.yarn/bin:$PATH"
+
+# tex
+eval "$(/usr/libexec/path_helper)"
