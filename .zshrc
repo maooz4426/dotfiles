@@ -52,3 +52,5 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 # tex
 eval "$(/usr/libexec/path_helper)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
