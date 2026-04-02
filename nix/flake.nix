@@ -14,7 +14,7 @@
     };
 
     outputs = { self, nixpkgs, home-manager, nix-darwin }: let
-        hostname = "MAOZMacbook-Air";
+        hostname = "MAOZBook";
         username = "maoz";
         system = "aarch64-darwin";
         homedir = "/Users/${username}";
@@ -23,35 +23,16 @@
         darwinConfigurations."${hostname}" = nix-darwin.lib.darwinSystem {
             inherit system pkgs;
             modules = [
-                {
-                    nix.enable = false;
-
-                    system.stateVersion = 5;
-                    system.primaryUser = username;
-
-                    users.users.${username}.home = homedir;
-
-                    homebrew = {
-                        enable = true;
-                        brews = [];
-                        casks = [];
-                    };
-                }
+                ./systems/darwin/default.nix
                 home-manager.darwinModules.home-manager
                 {
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
-                    home-manager.users.${username} = { ... }: {
-                        home.stateVersion = "25.05";
-                        home.username = username;
-                        home.homeDirectory = homedir;
-
-                        home.packages = [
-                            pkgs.yazi
-                        ];
-                    };
+                    home-manager.users.${username} = import ./home/profiles/maozbook/default.nix;
                 }
             ];
+
+            specialArgs = { inherit username homedir; };
         };
     };
 }
