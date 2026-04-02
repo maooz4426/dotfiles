@@ -8,7 +8,7 @@ return {
   config = function()
     require("mason").setup()
 
-    local servers = { "lua_ls", "ts_ls", "gopls" }
+    local servers = { "lua_ls", "ts_ls", "gopls","nil" }
 
     require("mason-lspconfig").setup({
       ensure_installed = servers,
