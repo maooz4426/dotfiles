@@ -9,7 +9,21 @@
     homebrew = {
         enable = true;
         brews = [];
-        casks = [];
+        casks = [
+            "alt-tab"
+            "parsec"
+            "claude-code"
+            "1password"
+            "raycast"
+            "ghostty"
+            "mactex-no-gui"
+            "thunderbird"
+            "gcloud-cli"
+            "postman"
+            "cursor"
+            "zotero"
+            "session-manager-plugin"
+        ];
     };
 }
 
