@@ -6,4 +6,12 @@
     home.packages = [
         pkgs.yazi
     ];
+
+    programs.go = {
+        enable = true;
+    };
+
+    programs.gh = {
+        enable = true;
+    };
 }
