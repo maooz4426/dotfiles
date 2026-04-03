@@ -23,6 +23,7 @@
             "cursor"
             "zotero"
             "session-manager-plugin"
+            "karabiner-elements"
         ];
     };
 }
