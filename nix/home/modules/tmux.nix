@@ -1,0 +1,54 @@
+{ pkgs, ... }: {
+    programs.tmux = {
+        enable = true;
+        prefix = "C-t";
+        keyMode = "vi";
+        mouse = true;
+
+        plugins = with pkgs.tmuxPlugins; [
+            {
+                plugin = power-theme;
+                extraConfig = ''
+                    set -g @tmux_power_theme 'violet'
+                '';
+            }
+        ];
+
+        extraConfig = ''
+            # pane splits
+            bind ^ split-window -h
+            bind - split-window -v
+
+            # status line colors
+            set-option -g status-fg color15
+            set-option -g status-bg colour57
+
+            # pane border
+            set-option -g pane-border-style "fg=default"
+            set-option -g pane-active-border-style "bg=default"
+            set-option -ag pane-active-border-style "fg=default"
+
+            # select pane (no prefix)
+            bind -n C-S-h select-pane -L
+            bind -n C-S-j select-pane -D
+            bind -n C-S-k select-pane -U
+            bind -n C-S-l select-pane -R
+
+            # resize pane
+            bind -r H resize-pane -L 5
+            bind -r J resize-pane -D 5
+            bind -r K resize-pane -U 5
+            bind -r L resize-pane -R 5
+
+            # copy mode
+            bind-key v copy-mode
+            bind-key -T copy-mode-vi v send-keys -X begin-selection
+            bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
+            bind-key p run "pbcopy | tmux load-buffer - ; tmux paste-buffer"
+
+            # window style
+            set -g window-style 'fg=default,bg=default'
+            set -g window-active-style 'fg=default,bg=default'
+        '';
+    };
+}
