@@ -6,6 +6,10 @@
 
     users.users.maoz.home = "/Users/maoz";
 
+    
+    # https://nix-darwin.github.io/nix-darwin/manual/#opt-services.tailscale.enable
+    services.tailscale.enable = true;
+
     homebrew = {
         enable = true;
         brews = [];
