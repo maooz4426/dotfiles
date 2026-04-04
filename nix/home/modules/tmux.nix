@@ -26,10 +26,10 @@
             bind - split-window -v
 
             # select pane (no prefix)
-            bind -n C-S-h select-pane -L
-            bind -n C-S-j select-pane -D
-            bind -n C-S-k select-pane -U
-            bind -n C-S-l select-pane -R
+            bind -n C-h select-pane -L
+            bind -n C-j select-pane -D
+            bind -n C-k select-pane -U
+            bind -n C-l select-pane -R
 
             # resize pane
             bind -r H resize-pane -L 5
