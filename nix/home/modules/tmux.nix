@@ -10,23 +10,20 @@
                 plugin = power-theme;
                 extraConfig = ''
                     set -g @tmux_power_theme 'violet'
+                    set-option -g status-fg color15
+                    set-option -g status-bg colour57
                 '';
             }
         ];
 
         extraConfig = ''
+            # pane border
+            set-option -g pane-border-style "fg=colour238"
+            set-option -g pane-active-border-style "fg=#9370db"
+
             # pane splits
             bind ^ split-window -h
             bind - split-window -v
-
-            # status line colors
-            set-option -g status-fg color15
-            set-option -g status-bg colour57
-
-            # pane border
-            set-option -g pane-border-style "fg=default"
-            set-option -g pane-active-border-style "bg=default"
-            set-option -ag pane-active-border-style "fg=default"
 
             # select pane (no prefix)
             bind -n C-S-h select-pane -L
@@ -49,6 +46,12 @@
             # window style
             set -g window-style 'fg=default,bg=default'
             set -g window-active-style 'fg=default,bg=default'
+
+            # passthrough (for image display etc.)
+            set -g allow-passthrough on
+
+            # reload config
+            bind r source-file ~/.tmux.conf \; display-message "Config reloaded!"
         '';
     };
 }
