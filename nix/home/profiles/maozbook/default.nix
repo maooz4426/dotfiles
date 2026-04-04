@@ -10,6 +10,7 @@
 
     home.packages = [
         pkgs.yazi
+        pkgs.mosh
     ];
 
     programs.go = {
