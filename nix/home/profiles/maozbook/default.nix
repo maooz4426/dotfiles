@@ -11,6 +11,8 @@
     home.packages = [
         pkgs.yazi
         pkgs.mosh
+        pkgs.gcc
+        pkgs.clang-tools
     ];
 
     programs.go = {

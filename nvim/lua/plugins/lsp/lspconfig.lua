@@ -8,10 +8,11 @@ return {
   config = function()
     require("mason").setup()
 
-    local servers = { "lua_ls", "ts_ls", "gopls","nil_ls" }
+    local mason_servers = { "lua_ls", "ts_ls", "gopls", "nil_ls" }
+    local servers = { "lua_ls", "ts_ls", "gopls", "nil_ls", "clangd" }
 
     require("mason-lspconfig").setup({
-      ensure_installed = servers,
+      ensure_installed = mason_servers,
     })
 
     -- 全サーバー共通の設定（ワイルドカード）
