@@ -1,4 +1,4 @@
-{pkgs,...}: {
+{pkgs, config, lib, ...}: {
     imports = [
         ../../modules/tmux.nix
         ../../modules/karabiner.nix
@@ -13,6 +13,10 @@
         pkgs.mosh
         pkgs.gcc
         pkgs.clang-tools
+        pkgs.lua-language-server
+        pkgs.typescript-language-server
+        pkgs.gopls
+        pkgs.nil
     ];
 
     programs.go = {
@@ -21,6 +25,18 @@
 
     programs.gh = {
         enable = true;
+    };
+
+    programs.neovim = {
+        enable = true;
+    };
+
+    xdg.configFile."nvim/init.lua" = lib.mkForce {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Develop/dotfiles/nvim/init.lua";
+    };
+
+    xdg.configFile."nvim/lua" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Develop/dotfiles/nvim/lua";
     };
 
 }

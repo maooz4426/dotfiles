@@ -2,25 +2,12 @@ return {
   "neovim/nvim-lspconfig",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
   },
   config = function()
-    require("mason").setup()
-
-    local mason_servers = { "lua_ls", "ts_ls", "gopls", "nil_ls" }
-    local servers = { "lua_ls", "ts_ls", "gopls", "nil_ls", "clangd" }
-
-    require("mason-lspconfig").setup({
-      ensure_installed = mason_servers,
-    })
-
-    -- 全サーバー共通の設定（ワイルドカード）
     vim.lsp.config("*", {
       capabilities = require("cmp_nvim_lsp").default_capabilities(),
     })
 
-    -- キーマップはLSPアタッチ時に設定
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local opts = { noremap = true, silent = true, buffer = args.buf }
@@ -32,7 +19,6 @@ return {
       end,
     })
 
-    -- サーバーを有効化
-    vim.lsp.enable(servers)
+    vim.lsp.enable({ "lua_ls", "ts_ls", "gopls", "nil_ls", "clangd" })
   end,
 }
