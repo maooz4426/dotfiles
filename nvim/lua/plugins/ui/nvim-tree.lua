@@ -1,5 +1,6 @@
 return {
     "nvim-tree/nvim-tree.lua",
+    dev = require("nixCatsUtils").isNixCats,
     version = "*",
     lazy = false,
     dependencies = {

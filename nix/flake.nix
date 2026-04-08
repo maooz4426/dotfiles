@@ -11,9 +11,10 @@
             url = "github:LnL7/nix-darwin";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        nixCats.url = "github:BirdeeHub/nixCats-nvim";
     };
 
-    outputs = { self, nixpkgs, home-manager, nix-darwin }: let
+    outputs = { self, nixpkgs, home-manager, nix-darwin, nixCats }: let
         hostname = "MAOZBook";
         username = "maoz";
         system = "aarch64-darwin";
@@ -29,6 +30,7 @@
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
                     home-manager.users.${username} = import ./home/profiles/maozbook/default.nix;
+                    home-manager.extraSpecialArgs = { inherit nixCats; };
                 }
             ];
 

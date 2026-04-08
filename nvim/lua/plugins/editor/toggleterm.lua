@@ -1,5 +1,6 @@
 return {
   "akinsho/toggleterm.nvim",
+  dev = require("nixCatsUtils").isNixCats,
   config = function()
     require("toggleterm").setup({
       size = 15,

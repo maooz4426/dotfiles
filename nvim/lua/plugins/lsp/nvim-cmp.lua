@@ -1,5 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
+  dev = require("nixCatsUtils").isNixCats, 
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",

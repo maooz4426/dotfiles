@@ -1,5 +1,6 @@
 return {
   'nvim-telescope/telescope.nvim',
+  dev = require("nixCatsUtils").isNixCats,
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     local telescope = require('telescope')
