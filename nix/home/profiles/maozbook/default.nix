@@ -4,6 +4,7 @@
         ../../modules/karabiner.nix
         ../../modules/neovim.nix
         ../../modules/starship.nix
+        ../../modules/zsh.nix
     ];
 
     home.stateVersion = "25.05";
