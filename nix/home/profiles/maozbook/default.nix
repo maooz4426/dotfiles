@@ -3,6 +3,7 @@
         ../../modules/tmux.nix
         ../../modules/karabiner.nix
         ../../modules/neovim.nix
+        ../../modules/starship.nix
     ];
 
     home.stateVersion = "25.05";
@@ -26,6 +27,5 @@
 
     programs.gh = {
         enable = true;
-    };
-
+    }; 
 }

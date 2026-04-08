@@ -14,7 +14,7 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # starship
 eval "$(starship init zsh)"
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export STARSHIP_CONFIG=$HOME/.config/starship.toml
 
 precmd() {
   print -Pn "\e]0;%~\a"
