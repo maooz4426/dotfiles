@@ -5,6 +5,7 @@
         ../../modules/neovim.nix
         ../../modules/starship.nix
         ../../modules/zsh.nix
+        ../../modules/ghostty.nix
     ];
 
     home.stateVersion = "25.05";
