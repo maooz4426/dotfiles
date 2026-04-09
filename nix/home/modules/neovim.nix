@@ -29,6 +29,7 @@
                     kanagawa-nvim
                     nvim-tree-lua
                     nvim-web-devicons
+                    snacks-nvim
                 ];
                 editor = with pkgs.vimPlugins; [
                     (nvim-treesitter.withPlugins (p: [
@@ -39,6 +40,9 @@
                     telescope-nvim
                     toggleterm-nvim
                     markdown-preview-nvim
+                ];
+                agents = with pkgs.vimPlugins; [
+                    claudecode-nvim
                 ];
             };
         });
@@ -54,6 +58,7 @@
                         lsp = true;
                         ui = true;
                         editor = true;
+                        agents = true;
                     };
                 };
             };
