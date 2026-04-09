@@ -10,6 +10,10 @@
 
     users.users.maoz.home = "/Users/maoz";
 
+    security.pam.services.sudo_local = {
+  touchIdAuth = true;
+  reattach = true; # tmux内で必要
+};
     
     # https://nix-darwin.github.io/nix-darwin/manual/#opt-services.tailscale.enable
     services.tailscale.enable = true;
