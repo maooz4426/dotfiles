@@ -1,4 +1,8 @@
 {...}: {
+    imports = [
+        ./modules/borders.nix
+    ];
+
     nix.enable = false;
 
     system.stateVersion = 5;
