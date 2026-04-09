@@ -33,7 +33,7 @@ dotfiles/
 - nix-darwin のブートストラップ
 - flake 設定の適用
 
-ホスト名を省略すると macOS の `LocalHostName` が使われる（デフォルト: `MAOZBook`）。
+ホスト名を省略すると macOS の `LocalHostName` が使われる。
 
 ### 設定の更新
 
