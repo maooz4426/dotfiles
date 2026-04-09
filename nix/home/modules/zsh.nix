@@ -21,6 +21,9 @@
         };
 
         initContent = ''
+            # starship
+            eval "$(starship init zsh)"
+
             # yazi
             function yz() {
                 tmp="$(mktemp -t "yazi-cwd.XXXXX")"
@@ -45,6 +48,7 @@
             # pyenv
             export PATH="$PYENV_ROOT/bin:$PATH"
             eval "$(pyenv init -)"
+
 
             # thefuck
             eval $(thefuck --alias)
