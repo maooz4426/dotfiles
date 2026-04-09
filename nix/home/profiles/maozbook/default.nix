@@ -21,6 +21,8 @@
         pkgs.typescript-language-server
         pkgs.gopls
         pkgs.nil
+        pkgs.starship
+        pkgs.mariadb.client
     ];
 
     programs.go = {
