@@ -1,3 +1,5 @@
+# nixCatsフレームワークを使ったNeovimの設定。
+# Luaの設定ファイルはシンボリックリンクで参照しており、nixのビルドを経由せずに直接編集できる。
 { pkgs, config, lib, nixCats, ... }: {
     imports = [
         nixCats.homeModule

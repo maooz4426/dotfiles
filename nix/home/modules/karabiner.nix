@@ -1,3 +1,4 @@
+# Karabiner-Elementsのcomplex_modifications設定を生成する。
 {...}: {
     home.file.karabinerMouseVim = {
         target = ".config/karabiner/assets/complex_modifications/mouse_vim.json";

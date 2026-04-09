@@ -1,3 +1,4 @@
+# tmuxの設定。
 { pkgs, ... }: {
     programs.tmux = {
         enable = true;

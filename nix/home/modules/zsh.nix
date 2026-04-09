@@ -1,3 +1,4 @@
+# Zshの設定。
 { pkgs, ... }: {
     programs.zsh = {
         enable = true;
