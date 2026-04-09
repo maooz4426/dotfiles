@@ -32,6 +32,7 @@
             "zotero"
             "session-manager-plugin"
             "karabiner-elements"
+            "google-chrome"
         ];
     };
 }
