@@ -1,12 +1,14 @@
-# JankyBordersによるウィンドウ枠の設定。
+# JankyBordersサービスの有効化と設定。
+# nix-darwin経由でlaunchdで起動されるため、bordersrcは読み込まれない。
+# 設定はここで直接指定する。
 # https://github.com/FelixKratz/JankyBorders
 {...}: {
     services.jankyborders = {
         enable = true;
         style = "round";
-        width = 4.0;
-        hidpi = true;
-        active_color = "0xc0ff00f2";   # マゼンタ（半透明）
-        inactive_color = "0xff0080ff"; # ブルー
+        width = 6.0;
+        hidpi = false;
+        active_color = "0xc0ff00f2";
+        inactive_color = "0xff0080ff";
     };
 }
