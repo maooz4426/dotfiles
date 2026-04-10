@@ -12,6 +12,11 @@
         luaPath = ../../../nvim;
 
         categoryDefinitions.replace = ({ pkgs, ... }: {
+            lspsAndRuntimeDeps = {
+                lsp = with pkgs; [
+                    stylua
+                ];
+            };
             startupPlugins = {
                 lsp = with pkgs.vimPlugins; [
                     nvim-lspconfig
@@ -21,6 +26,7 @@
                     cmp-path
                     luasnip
                     cmp_luasnip
+                    conform-nvim
                 ];
                 ui = with pkgs.vimPlugins; [
                     alpha-nvim
