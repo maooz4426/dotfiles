@@ -6,3 +6,10 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+
+-- 外部ツールによるファイル変更を自動リロード
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "TermLeave" }, {
+    pattern = "*",
+    command = "checktime",
+})
