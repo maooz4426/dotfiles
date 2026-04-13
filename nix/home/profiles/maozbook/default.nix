@@ -25,6 +25,7 @@
         pkgs.nil                       # Nix LSP
         pkgs.starship                  # シェルプロンプト
         pkgs.mariadb.client            # MySQLクライアント（CLIのみ）
+        pkgs.terraform-ls
     ];
 
     programs.go = {
