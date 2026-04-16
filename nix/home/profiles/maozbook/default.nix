@@ -43,4 +43,19 @@
   programs.gh = {
     enable = true; # GitHub CLI
   };
+
+  programs.git = {
+    enable = true;
+    extraConfig = {
+      core.hooksPath = "~/.config/git/hooks";
+    };
+  };
+
+  home.file.".config/git/hooks/pre-commit" = {
+    executable = true;
+    text = ''
+      #!/usr/bin/env bash
+      ${pkgs.gitleaks}/bin/gitleaks protect --staged --redact -v
+    '';
+  };
 }
