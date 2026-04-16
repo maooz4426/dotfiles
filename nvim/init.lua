@@ -1,6 +1,7 @@
 require("nixCatsUtils").setup {
     lsp = true,
 }
-require("config.lazy")
-require("config.options")
-require("config.key")
+require("core.lazy")
+require("core.options")
+require("core.diagnostics")
+require("core.key")
