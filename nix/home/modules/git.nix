@@ -33,19 +33,6 @@
       http.postBuffer = 524288000;
       init.defaultBranch = "main";
       url."ssh://git@github.com/".insteadOf = "https://github.com/";
-      merge.tool = "unityyamlmerge";
-      "mergetool \"unityyamlmerge\"" = {
-        trustExitCode = false;
-        cmd = "'/Applications/Unity/Hub/Editor/6000.0.36f1/Unity.app/Contents/Tools/UnityYAMLMerge' merge -p \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"";
-      };
-      "difftool \"sourcetree\"" = {
-        cmd = "opendiff \"$LOCAL\" \"$REMOTE\"";
-        path = "";
-      };
-      "mergetool \"sourcetree\"" = {
-        cmd = "/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"";
-        trustExitCode = true;
-      };
     };
   };
 
