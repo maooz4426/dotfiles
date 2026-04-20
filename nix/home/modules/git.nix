@@ -1,8 +1,12 @@
 { pkgs, ... }:
+# home-manager programs.git オプション一覧:
+# https://nix-community.github.io/home-manager/options.xhtml#opt-programs.git.enable
 {
   programs.git = {
     enable = true;
+
     lfs.enable = true;
+
     settings = {
       user = {
         name = "MAOZ";
