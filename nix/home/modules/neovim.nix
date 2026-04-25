@@ -45,6 +45,7 @@
             nvim-tree-lua
             nvim-web-devicons
             snacks-nvim
+            bufferline-nvim
           ];
           editor = with pkgs.vimPlugins; [
             (nvim-treesitter.withPlugins (p: [
