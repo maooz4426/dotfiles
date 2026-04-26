@@ -69,6 +69,7 @@
             telescope-nvim
             toggleterm-nvim
             markdown-preview-nvim
+            lazygit-nvim
           ];
           agents = with pkgs.vimPlugins; [
             claudecode-nvim
