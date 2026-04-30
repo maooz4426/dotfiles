@@ -65,6 +65,7 @@
               p.tsx
               p.typescript
               p.yaml
+              p.terraform
             ]))
             telescope-nvim
             toggleterm-nvim

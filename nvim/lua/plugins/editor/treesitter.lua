@@ -27,6 +27,7 @@ return {
             "tsx",
             "typescript",
             "yaml",
+            "terraform",
         },
     }
 }
