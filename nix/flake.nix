@@ -24,14 +24,20 @@
     };
 
     outputs = { self, nixpkgs, home-manager, nix-darwin, nixCats }: let
-        hostname = "MAOZBook";
         username = "maoz";
-        system = "aarch64-darwin"; # Apple Silicon Mac
-        homedir = "/Users/${username}";
-        pkgs = import nixpkgs { inherit system; };
+        darwinHostname = "MAOZBook";
+        darwinSystem = "aarch64-darwin"; # Apple Silicon Mac
+        darwinHomedir = "/Users/${username}";
+        darwinPkgs = import nixpkgs { system = darwinSystem; };
+
+        nixosHostname = "manix";
+        nixosSystem = "x86_64-linux";
+        nixosHomedir = "/home/${username}";
+        nixosPkgs = import nixpkgs { system = nixosSystem; };
     in {
-        darwinConfigurations."${hostname}" = nix-darwin.lib.darwinSystem {
-            inherit system pkgs;
+        darwinConfigurations."${darwinHostname}" = nix-darwin.lib.darwinSystem {
+            system = darwinSystem;
+            pkgs = darwinPkgs;
             modules = [
                 ./systems/darwin/default.nix
 
@@ -45,7 +51,26 @@
                 }
             ];
 
-            specialArgs = { inherit username homedir; };
+            specialArgs = { inherit username; homedir = darwinHomedir; };
+        };
+
+        nixosConfigurations."${nixosHostname}" = nixpkgs.lib.nixosSystem {
+            system = nixosSystem;
+            pkgs = nixosPkgs;
+            modules = [
+                ./systems/nixos/default.nix
+
+                # home-managerをNixOSに統合する
+                home-manager.nixosModules.home-manager
+                {
+                    home-manager.useGlobalPkgs = true;
+                    home-manager.useUserPackages = true;
+                    home-manager.users.${username} = import ./home/profiles/manix/default.nix;
+                    home-manager.extraSpecialArgs = { inherit nixCats; };
+                }
+            ];
+
+            specialArgs = { inherit username; homedir = nixosHomedir; };
         };
     };
 }
