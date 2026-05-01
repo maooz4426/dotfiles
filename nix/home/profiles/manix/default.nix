@@ -22,6 +22,7 @@
     pkgs.vim
     pkgs.yazi
     pkgs.gcc
+    pkgs.gnumake
     pkgs.clang-tools
     pkgs.lua-language-server
     pkgs.typescript-language-server
