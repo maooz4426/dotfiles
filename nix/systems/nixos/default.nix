@@ -1,6 +1,6 @@
 # NixOSシステムレベルの設定。
 # ユーザー設定（home-manager）とは異なり、OS全体に影響する設定をここに書く。
-{ pkgs, username, ... }:
+{ pkgs, lib, username, ... }:
 {
   imports = [
     # マシンのハードウェア設定（nixos-generate-configで生成される）
@@ -64,6 +64,11 @@
 
   # VPNクライアント
   services.tailscale.enable = true;
+
+  # unfreeパッケージの許可
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "claude-code"
+  ];
 
   system.stateVersion = "25.05";
 }
