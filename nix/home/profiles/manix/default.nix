@@ -33,8 +33,6 @@
     pkgs.mosh
   ];
 
-  programs.starship.enable = false;
-
   programs.go = {
     enable = true;
   };
