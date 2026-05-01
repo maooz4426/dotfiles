@@ -10,8 +10,7 @@
 {
   imports = [
     ../../modules/tmux.nix
-    ../../modules/neovim.nix
-    ../../modules/zsh.nix
+    ./zsh.nix
     ../../modules/git.nix
   ];
 
@@ -20,6 +19,7 @@
   home.homeDirectory = "/home/maoz";
 
   home.packages = [
+    pkgs.vim
     pkgs.yazi
     pkgs.gcc
     pkgs.clang-tools
