@@ -36,6 +36,11 @@
   ];
 
   nixpkgs.overlays = [ claude-code.overlays.default ];
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "claude-code"
+    ];
 
   programs.go = {
     enable = true;
