@@ -44,6 +44,11 @@
     ];
   };
 
+  # Mosh (UDP)
+  networking.firewall.allowedUDPPortRanges = [
+    { from = 60000; to = 61000; }
+  ];
+
   # SSH
   services.openssh = {
     enable = true;
