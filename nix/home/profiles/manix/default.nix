@@ -29,6 +29,7 @@
     pkgs.nil
     pkgs.terraform-ls
     pkgs.gitleaks
+    pkgs.mosh
   ];
 
   programs.go = {
