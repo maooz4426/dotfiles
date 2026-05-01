@@ -11,7 +11,6 @@
   imports = [
     ../../modules/tmux.nix
     ../../modules/neovim.nix
-    ../../modules/starship.nix
     ../../modules/zsh.nix
     ../../modules/git.nix
   ];
@@ -28,7 +27,6 @@
     pkgs.typescript-language-server
     pkgs.gopls
     pkgs.nil
-    pkgs.starship
     pkgs.terraform-ls
     pkgs.gitleaks
   ];
