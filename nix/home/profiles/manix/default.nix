@@ -5,6 +5,7 @@
   config,
   lib,
   nixCats,
+  claude-code,
   ...
 }:
 {
@@ -31,7 +32,10 @@
     pkgs.terraform-ls
     pkgs.gitleaks
     pkgs.mosh
+    pkgs.claude-code
   ];
+
+  nixpkgs.overlays = [ claude-code.overlays.default ];
 
   programs.go = {
     enable = true;
