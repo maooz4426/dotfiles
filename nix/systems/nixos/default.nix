@@ -27,6 +27,9 @@
       "networkmanager"
     ];
     shell = pkgs.zsh;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzwLxS2xOWY339fHI0EDGJ3baoZ5p9MT93+7bgi1qN+ moshi"
+    ];
   };
 
   # Zshをシステムレベルで有効化（home-managerのprograms.zshに必要）
@@ -46,7 +49,10 @@
 
   # Mosh (UDP)
   networking.firewall.allowedUDPPortRanges = [
-    { from = 60000; to = 61000; }
+    {
+      from = 60000;
+      to = 61000;
+    }
   ];
 
   # SSH
