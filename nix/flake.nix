@@ -74,7 +74,6 @@
 
       nixosConfigurations."${nixosHostname}" = nixpkgs.lib.nixosSystem {
         system = nixosSystem;
-        pkgs = nixosPkgs;
         modules = [
           ./systems/nixos/default.nix
 
