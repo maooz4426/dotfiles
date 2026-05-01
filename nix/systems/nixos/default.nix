@@ -22,7 +22,10 @@
   # ユーザー設定
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
     shell = pkgs.zsh;
   };
 
@@ -31,8 +34,21 @@
 
   # Nix設定
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [ "root" "${username}" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    trusted-users = [
+      "root"
+      "${username}"
+    ];
+  };
+
+  # SSH
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = true;
+    settings.PermitRootLogin = "yes";
   };
 
   # VPNクライアント
