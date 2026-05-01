@@ -11,7 +11,6 @@
 {
   imports = [
     ../../modules/tmux.nix
-    ./zsh.nix
     ../../modules/git.nix
   ];
 
