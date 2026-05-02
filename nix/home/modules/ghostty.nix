@@ -1,6 +1,34 @@
-# Ghosttyターミナルの設定ファイルを配置する。
-{ ... }: {
-    home.file."Library/Application Support/com.mitchellh.ghostty/config" = {
-        source = ../../../ghostty/config;
-    };
+{ ... }:
+{
+  home.file."Library/Application Support/com.mitchellh.ghostty/config".text = ''
+    theme = tokyonight
+
+    window-height = 40
+    window-width = 180
+
+    window-padding-x = 20
+    window-padding-y = 5
+    window-padding-balance = true
+
+    cursor-color = FF88FF
+    cursor-style-blink = true
+
+    macos-titlebar-style = tabs
+    macos-titlebar-proxy-icon = hidden
+    macos-window-shadow = true
+
+    quick-terminal-position = "top"
+    quick-terminal-screen = "main"
+    quick-terminal-animation-duration = 0.3
+    keybind = "global:cmd+shift+t=toggle_quick_terminal"
+    keybind = cmd+k=next_tab
+    keybind = cmd+j=previous_tab
+
+    macos-icon = custom-style
+    macos-icon-ghost-color = 010101
+    macos-icon-screen-color = FF88FF
+    macos-icon-frame = plastic
+
+    font-feature = -dlig
+  '';
 }
