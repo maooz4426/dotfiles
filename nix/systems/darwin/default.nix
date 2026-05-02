@@ -31,7 +31,6 @@
     casks = [
       "alt-tab"
       "parsec"
-      "claude-code"
       "1password"
       "raycast"
       "ghostty"
