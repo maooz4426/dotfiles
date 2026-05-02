@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  nixos:
+    name: Build NixOS (manix)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v14
+      - uses: DeterminateSystems/magic-nix-cache-action@v8
+      - name: Check flake evaluates
+        run: nix flake check ./nix --no-build
+      - name: Build NixOS system closure
+        run: make nix/check/manix
+
+  darwin:
+    name: Build nix-darwin (MAOZBook)
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v14
+      - uses: DeterminateSystems/magic-nix-cache-action@v8
+      - name: Check flake evaluates
+        run: nix flake check ./nix --no-build
+      - name: Build darwin system closure
+        run: make nix/check/mac
