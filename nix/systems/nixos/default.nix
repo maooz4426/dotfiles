@@ -68,6 +68,7 @@
   # unfreeパッケージの許可
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "claude-code"
+    "google-cloud-sdk"
   ];
 
   system.stateVersion = "25.05";

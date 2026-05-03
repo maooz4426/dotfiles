@@ -31,6 +31,7 @@
     pkgs.terraform-ls
     pkgs.gitleaks
     pkgs.mosh
+    pkgs.google-cloud-sdk
     pkgs.claude-code
   ];
 
