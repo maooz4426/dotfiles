@@ -29,7 +29,6 @@
     enable = true;
     brews = [ ];
     casks = [
-      "font-hack-nerd-font"
       "alt-tab"
       "parsec"
       "1password"
