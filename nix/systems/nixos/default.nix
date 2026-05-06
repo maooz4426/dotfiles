@@ -71,5 +71,7 @@
     "google-cloud-sdk"
   ];
 
+  fonts.packages = [ pkgs.nerd-fonts.hack ];
+
   system.stateVersion = "25.05";
 }
