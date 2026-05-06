@@ -29,6 +29,7 @@
     macos-icon-screen-color = FF88FF
     macos-icon-frame = plastic
 
+    font-family = Hack Nerd Font Mono
     font-feature = -dlig
   '';
 }

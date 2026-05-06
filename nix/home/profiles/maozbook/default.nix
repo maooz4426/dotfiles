@@ -23,6 +23,7 @@
   home.homeDirectory = "/Users/maoz";
 
   home.packages = [
+    pkgs.nerd-fonts.hack # Hack Nerd Font
     pkgs.yazi # ターミナルファイルマネージャー
     pkgs.mosh # モバイル向けSSHクライアント
     pkgs.gcc # Cコンパイラ
