@@ -16,6 +16,7 @@
     ../../modules/zsh.nix
     ../../modules/ghostty.nix
     ../../modules/git.nix
+    ../../modules/latex.nix
   ];
 
   home.stateVersion = "25.05";
