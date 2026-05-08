@@ -22,6 +22,8 @@
         };
 
         initContent = ''
+            export JAVA_HOME="${pkgs.jdk21.home}"
+
             # starship
             eval "$(starship init zsh)"
 
@@ -53,8 +55,6 @@
 
             # thefuck
             eval $(thefuck --alias)
-
-            eval "$(/usr/libexec/path_helper)"
 
             # cargo
             [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

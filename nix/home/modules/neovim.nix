@@ -24,6 +24,7 @@
         lspsAndRuntimeDeps = {
           lsp = with pkgs; [
             stylua
+            jdt-language-server
           ];
         };
         startupPlugins = {
@@ -66,6 +67,7 @@
               p.typescript
               p.yaml
               p.terraform
+              p.java
             ]))
             telescope-nvim
             toggleterm-nvim

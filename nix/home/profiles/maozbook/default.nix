@@ -36,6 +36,7 @@
     pkgs.mariadb.client # MySQLクライアント（CLIのみ）
     pkgs.terraform-ls
     pkgs.gitleaks
+    pkgs.jdk21 # Java開発環境
   ];
 
   programs.go = {

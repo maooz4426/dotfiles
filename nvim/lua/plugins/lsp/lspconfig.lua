@@ -20,6 +20,6 @@ return {
 			end,
 		})
 
-		vim.lsp.enable({ "lua_ls", "ts_ls", "gopls", "nil_ls", "clangd", "terraformls", "gh_actions_ls" })
+		vim.lsp.enable({ "lua_ls", "ts_ls", "gopls", "nil_ls", "clangd", "terraformls", "gh_actions_ls", "jdtls" })
 	end,
 }
