@@ -25,6 +25,7 @@
           lsp = with pkgs; [
             stylua
             jdt-language-server
+            clang-tools
           ];
         };
         startupPlugins = {

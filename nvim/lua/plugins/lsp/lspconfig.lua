@@ -20,6 +20,13 @@ return {
 			end,
 		})
 
+		-- macOSではNixのラッパーがCPLUS_INCLUDE_PATHを汚染するため、query-driverで回避
+		if vim.fn.has("mac") == 1 then
+			vim.lsp.config("clangd", {
+				cmd = { "clangd", "--query-driver=/usr/bin/clang++" },
+			})
+		end
+
 		vim.lsp.enable({ "lua_ls", "ts_ls", "gopls", "nil_ls", "clangd", "terraformls", "gh_actions_ls", "jdtls" })
 	end,
 }
