@@ -36,8 +36,20 @@
     pkgs.mariadb.client # MySQLクライアント（CLIのみ）
     pkgs.terraform-ls
     pkgs.gitleaks
-    pkgs.jdk21 # Java開発環境
+    pkgs.maven # Javaビルドツール
   ];
+
+  # NixのclangdラッパーがCPLUS_INCLUDE_PATHを汚染する問題を回避するためのclangd設定
+  # xdg.configFile."clangd/config.yaml".text = ''
+  #   CompileFlags:
+  #     Add:
+  #       - -std=c++17
+  # '';
+
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk21;
+  };
 
   programs.go = {
     enable = true;
