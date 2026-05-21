@@ -16,6 +16,7 @@
     ../../modules/zsh.nix
     ../../modules/ghostty.nix
     ../../modules/git.nix
+    ../../modules/alacritty
   ];
 
   home.stateVersion = "25.05";
