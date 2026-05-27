@@ -62,7 +62,10 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./home/profiles/maozbook/default.nix;
-            home-manager.extraSpecialArgs = { inherit nixCats; };
+            home-manager.extraSpecialArgs = {
+              inherit nixCats;
+              dotfilesDir = "${darwinHomedir}/dotfiles";
+            };
           }
         ];
 

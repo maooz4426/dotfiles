@@ -107,10 +107,10 @@
   };
 
   xdg.configFile."nvim/init.lua" = lib.mkForce {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Develop/dotfiles/nvim/init.lua";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim/init.lua";
   };
 
   xdg.configFile."nvim/lua" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Develop/dotfiles/nvim/lua";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim/lua";
   };
 }

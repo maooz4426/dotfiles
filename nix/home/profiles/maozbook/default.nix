@@ -5,6 +5,7 @@
   config,
   lib,
   nixCats,
+  dotfilesDir,
   ...
 }:
 {
@@ -17,6 +18,7 @@
     ../../modules/ghostty.nix
     ../../modules/git.nix
     ../../modules/alacritty
+    ../../modules/claude.nix
   ];
 
   home.stateVersion = "25.05";
