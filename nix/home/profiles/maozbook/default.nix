@@ -41,6 +41,7 @@
     pkgs.gitleaks
     pkgs.maven # Javaビルドツール
     pkgs.golangci-lint
+    pkgs.sops
   ];
 
   # NixのclangdラッパーがCPLUS_INCLUDE_PATHを汚染する問題を回避するためのclangd設定
