@@ -17,7 +17,6 @@
     ../../modules/zsh.nix
     ../../modules/ghostty.nix
     ../../modules/git.nix
-    ../../modules/alacritty
     ../../modules/claude.nix
   ];
 
