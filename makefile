@@ -7,7 +7,7 @@ nix/build/manix:
 	sudo nixos-rebuild switch --flake ./nix#manix
 
 nix/build/wsl:
-	sudo nixos-rebuild switch --flake ./nix#wslnix
+	nix run nixpkgs#home-manager -- switch -b backup --flake ./nix#maoz@wslnix
 
 nix/check/mac:
 	nix build ./nix#darwinConfigurations.MAOZBook.system \
@@ -18,7 +18,7 @@ nix/check/manix:
 		--no-link --print-build-logs
 
 nix/check/wsl:
-	nix build ./nix#nixosConfigurations.wslnix.config.system.build.toplevel \
+	nix build ./nix#homeConfigurations."maoz@wslnix".activationPackage \
 		--no-link --print-build-logs
 
 

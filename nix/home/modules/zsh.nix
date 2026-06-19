@@ -24,9 +24,6 @@
         initContent = ''
             export JAVA_HOME="${pkgs.jdk21.home}"
 
-            # starship
-            eval "$(starship init zsh)"
-
             # yazi
             function yz() {
                 tmp="$(mktemp -t "yazi-cwd.XXXXX")"

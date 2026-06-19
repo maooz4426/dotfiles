@@ -42,6 +42,7 @@
           ui = with pkgs.vimPlugins; [
             alpha-nvim
             mini-nvim
+            mini-icons
             plenary-nvim
             tokyonight-nvim
             nvim-tree-lua

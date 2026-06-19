@@ -34,7 +34,6 @@
     pkgs.typescript-language-server # TypeScript LSP
     pkgs.gopls # Go LSP
     pkgs.nil # Nix LSP
-    pkgs.starship # シェルプロンプト
     pkgs.mariadb.client # MySQLクライアント（CLIのみ）
     pkgs.terraform-ls
     pkgs.gitleaks

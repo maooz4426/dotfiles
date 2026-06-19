@@ -1,6 +1,7 @@
 # Starshipプロンプトの設定ファイルを配置する。
-{ ... }: {
-    xdg.configFile."starship.toml" = {
-        source = ../../../starship/starship.toml;
+{ pkgs, ... }: {
+    programs.starship = {
+        enable = true;
+        settings = builtins.fromTOML (builtins.readFile ../../../starship/starship.toml);
     };
 }

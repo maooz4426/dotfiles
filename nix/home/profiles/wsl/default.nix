@@ -10,6 +10,8 @@
   imports = [
     ../../modules/tmux.nix
     ../../modules/git.nix
+    ../../modules/starship.nix
+    ../../modules/neovim.nix
   ];
 
   home.stateVersion = "25.05";
@@ -17,7 +19,6 @@
   home.homeDirectory = "/home/maoz";
 
   home.packages = [
-    pkgs.vim
     pkgs.yazi
     pkgs.gcc
     pkgs.gnumake

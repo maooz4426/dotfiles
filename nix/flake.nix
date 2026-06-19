@@ -127,5 +127,18 @@
           homedir = wslHomedir;
         };
       };
+
+      homeConfigurations."${username}@${wslHostname}" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = wslSystem;
+          config.allowUnfreePredicate = pkg:
+            builtins.elem (nixpkgs.lib.getName pkg) [
+              "claude-code"
+              "google-cloud-sdk"
+            ];
+        };
+        modules = [ ./home/profiles/wsl/default.nix ];
+        extraSpecialArgs = { inherit nixCats claude-code; };
+      };
     };
 }
