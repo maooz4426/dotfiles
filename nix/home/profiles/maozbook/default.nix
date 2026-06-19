@@ -41,6 +41,7 @@
     pkgs.maven # Javaビルドツール
     pkgs.golangci-lint
     pkgs.sops
+    pkgs.postgresql  # psqlクライアントCLI（サーバーは含まない）
   ];
 
   # NixのclangdラッパーがCPLUS_INCLUDE_PATHを汚染する問題を回避するためのclangd設定
