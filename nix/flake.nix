@@ -26,6 +26,12 @@
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # WSL2上でNixOSを動かすためのモジュール
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -36,6 +42,7 @@
       nix-darwin,
       nixCats,
       claude-code,
+      nixos-wsl,
     }:
     let
       username = "maoz";
@@ -48,6 +55,10 @@
       nixosSystem = "x86_64-linux";
       nixosHomedir = "/home/${username}";
       nixosPkgs = import nixpkgs { system = nixosSystem; };
+
+      wslHostname = "wslnix";
+      wslSystem = "x86_64-linux";
+      wslHomedir = "/home/${username}";
     in
     {
       darwinConfigurations."${darwinHostname}" = nix-darwin.lib.darwinSystem {
@@ -93,6 +104,27 @@
         specialArgs = {
           inherit username;
           homedir = nixosHomedir;
+        };
+      };
+
+      nixosConfigurations."${wslHostname}" = nixpkgs.lib.nixosSystem {
+        system = wslSystem;
+        modules = [
+          nixos-wsl.nixosModules.default
+          ./systems/wsl/default.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = import ./home/profiles/wsl/default.nix;
+            home-manager.extraSpecialArgs = { inherit nixCats claude-code; };
+          }
+        ];
+
+        specialArgs = {
+          inherit username;
+          homedir = wslHomedir;
         };
       };
     };
