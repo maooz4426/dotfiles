@@ -46,6 +46,7 @@
       "discord"
       "obs"
       "claude"
+      "dotnet-sdk"
     ];
   };
 }

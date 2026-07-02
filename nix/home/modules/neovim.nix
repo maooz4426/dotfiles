@@ -26,6 +26,8 @@
             stylua
             jdt-language-server
             clang-tools
+            omnisharp-roslyn
+            csharpier
           ];
         };
         startupPlugins = {
@@ -70,6 +72,7 @@
               p.yaml
               p.terraform
               p.java
+              p.c_sharp
             ]))
             telescope-nvim
             toggleterm-nvim

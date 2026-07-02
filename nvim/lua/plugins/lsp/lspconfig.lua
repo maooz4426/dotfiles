@@ -27,6 +27,14 @@ return {
 			})
 		end
 
-		vim.lsp.enable({ "lua_ls", "ts_ls", "gopls", "nil_ls", "clangd", "terraformls", "gh_actions_ls", "jdtls" })
+		vim.lsp.config("omnisharp", {
+			cmd = { "OmniSharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+			settings = {
+				FormattingOptions = { EnableEditorConfigSupport = true },
+				RoslynExtensionsOptions = { EnableAnalyzersSupport = true },
+			},
+		})
+
+		vim.lsp.enable({ "lua_ls", "ts_ls", "gopls", "nil_ls", "clangd", "terraformls", "gh_actions_ls", "jdtls", "omnisharp" })
 	end,
 }

@@ -28,6 +28,7 @@ return {
             "typescript",
             "yaml",
             "terraform",
+            "c_sharp",
         },
     }
 }
