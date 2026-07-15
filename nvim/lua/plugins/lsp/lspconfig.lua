@@ -35,6 +35,6 @@ return {
 			},
 		})
 
-		vim.lsp.enable({ "lua_ls", "ts_ls", "gopls", "nil_ls", "clangd", "terraformls", "gh_actions_ls", "jdtls", "omnisharp" })
+		vim.lsp.enable({ "lua_ls", "ts_ls", "gopls", "nil_ls", "clangd", "terraformls", "gh_actions_ls", "jdtls", "omnisharp", "helm_ls" })
 	end,
 }
