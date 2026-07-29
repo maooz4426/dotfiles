@@ -40,12 +40,13 @@
     pkgs.maven # Javaビルドツール
     pkgs.golangci-lint
     pkgs.sops
-    pkgs.postgresql  # psqlクライアントCLI（サーバーは含まない）
+    pkgs.postgresql # psqlクライアントCLI（サーバーは含まない）
     pkgs.ansible
     pkgs.kubectl # Kubernetes CLI
     pkgs.k9s # Kubernetes TUI
     pkgs.kubernetes-helm # helm
     pkgs.helm-ls # Helmチャート用LSP
+    pkgs.pinact
   ];
 
   # NixのclangdラッパーがCPLUS_INCLUDE_PATHを汚染する問題を回避するためのclangd設定
