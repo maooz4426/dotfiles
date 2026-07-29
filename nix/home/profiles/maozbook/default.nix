@@ -17,7 +17,6 @@
     ../../modules/zsh.nix
     ../../modules/ghostty.nix
     ../../modules/git.nix
-    ../../modules/claude.nix
   ];
 
   home.stateVersion = "25.05";
@@ -46,7 +45,9 @@
     pkgs.k9s # Kubernetes TUI
     pkgs.kubernetes-helm # helm
     pkgs.helm-ls # Helmチャート用LSP
+    pkgs.argocd # Argo CD CLI
     pkgs.pinact
+
   ];
 
   # NixのclangdラッパーがCPLUS_INCLUDE_PATHを汚染する問題を回避するためのclangd設定
