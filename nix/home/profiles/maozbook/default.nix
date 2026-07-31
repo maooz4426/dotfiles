@@ -47,7 +47,7 @@
     pkgs.helm-ls # Helmチャート用LSP
     pkgs.argocd # Argo CD CLI
     pkgs.pinact
-
+    pkgs.cloudflared
   ];
 
   # NixのclangdラッパーがCPLUS_INCLUDE_PATHを汚染する問題を回避するためのclangd設定
