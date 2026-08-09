@@ -40,6 +40,10 @@
   # Zshをシステムレベルで有効化（home-managerのprograms.zshに必要）
   programs.zsh.enable = true;
 
+  # SSH鍵認証のみで運用するため、wheelグループのsudoパスワードは不要にする
+  # （宣言的ユーザー管理ではhashedPasswordを設定しない限りアカウントがロックされ、sudoが詰まるため）
+  security.sudo.wheelNeedsPassword = false;
+
   # Nix設定
   nix.settings = {
     experimental-features = [
