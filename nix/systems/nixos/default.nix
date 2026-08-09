@@ -3,21 +3,20 @@
 {
   pkgs,
   lib,
+  modulesPath,
   username,
   ...
 }:
 {
   imports = [
-    # マシンのハードウェア設定（nixos-generate-configで生成される）
-    # NixOSマシン上で: sudo cp /etc/nixos/hardware-configuration.nix <dotfiles>/nix/systems/nixos/
-    ./hardware-configuration.nix
+    # Proxmox LXC用の設定（boot.isContainer・/sbin/init・systemd-networkd連携）。
+    # LXCはホストのカーネルを使うのでhardware-configuration.nixは不要。
+    (modulesPath + "/virtualisation/proxmox-lxc.nix")
   ];
 
-  # ブートローダー（nixos-generate-configで生成されたhardware-configuration.nixに
-  # lxcにはbootがないのでfalse
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  boot.loader.grub.enable = lib.mkForce false;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # ホスト名をNix側で管理する。falseのままだとhostNameがmkForce ""され、
+  # Proxmoxが/etc/hostnameへ書く値を使う動作になる。
+  proxmoxLXC.manageHostName = true;
 
   networking.hostName = "manix";
 
@@ -70,6 +69,9 @@
 
   # VPNクライアント
   services.tailscale.enable = true;
+  # Tailscale経由のトラフィックを許可する
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+  networking.firewall.checkReversePath = "loose";
 
   # unfreeパッケージの許可
   nixpkgs.config.allowUnfreePredicate =
