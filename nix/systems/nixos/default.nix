@@ -1,6 +1,11 @@
 # NixOSシステムレベルの設定。
 # ユーザー設定（home-manager）とは異なり、OS全体に影響する設定をここに書く。
-{ pkgs, lib, username, ... }:
+{
+  pkgs,
+  lib,
+  username,
+  ...
+}:
 {
   imports = [
     # マシンのハードウェア設定（nixos-generate-configで生成される）
@@ -9,8 +14,9 @@
   ];
 
   # ブートローダー（nixos-generate-configで生成されたhardware-configuration.nixに
-  # 既に含まれている場合はここを削除してよい）
-  boot.loader.systemd-boot.enable = true;
+  # lxcにはbootがないのでfalse
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.loader.grub.enable = lib.mkForce false;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "manix";
@@ -66,10 +72,12 @@
   services.tailscale.enable = true;
 
   # unfreeパッケージの許可
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "claude-code"
-    "google-cloud-sdk"
-  ];
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "claude-code"
+      "google-cloud-sdk"
+    ];
 
   fonts.packages = [ pkgs.nerd-fonts.hack ];
 
