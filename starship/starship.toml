@@ -14,6 +14,8 @@ $aws\
 $docker_context\
 $jobs\
 $cmd_duration\
+$nix_shell\
+$shlvl\
 $line_break\
 $character"""
 
@@ -131,3 +133,18 @@ yellow='#e5c07b'
 gray='#828997'
 white ='#abb2bf'
 black='#2c323c'
+
+# Nix Shell（nix developなど）に入っている時に ❄ マークなどを表示する設定
+[nix_shell]
+disabled = false
+impure_msg = ''
+style = 'cyan'
+symbol = '❄ '  
+format = '[$symbol$state]($style) '
+heuristic = true
+
+# シェルのネスト深さを表示する設定（nix developで別シェルに入った時に階層が深くなるのを利用）
+[shlvl]
+disabled = false
+style = "blue"
+symbol = "󰓍 "
