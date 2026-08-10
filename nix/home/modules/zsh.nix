@@ -50,10 +50,6 @@
       export PATH="$PYENV_ROOT/bin:$PATH"
       eval "$(pyenv init -)"
 
-
-      # thefuck
-      eval $(thefuck --alias)
-
       # cargo
       [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
