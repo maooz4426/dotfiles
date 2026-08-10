@@ -10,7 +10,7 @@ vim.keymap.set("n", "]d", function()
 	vim.diagnostic.jump({ count = 1 })
 end, { desc = "Next diagnostic" })
 
-vim.keymap.set("n", "<leader>ce", function()
+vim.keymap.set("n", "<leader>cd", function()
 	local line = vim.api.nvim_win_get_cursor(0)[1] - 1
 	local diags = vim.diagnostic.get(0, { lnum = line })
 	if vim.tbl_isempty(diags) then
