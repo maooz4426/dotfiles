@@ -6,6 +6,7 @@
     prefix = "C-t";
     keyMode = "vi";
     mouse = true;
+    terminal = "tmux-256color";
 
     plugins = with pkgs.tmuxPlugins; [
       {
@@ -23,6 +24,9 @@
       # pane border
       set-option -g pane-border-style "fg=colour238"
       set-option -g pane-active-border-style "fg=#9370db"
+
+      # 打ち消し線
+      set -ga terminal-features "*:strikethrough"
 
       # pane splits
       bind ^ split-window -h

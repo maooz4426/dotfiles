@@ -22,3 +22,4 @@ vim.diagnostic.config({
 		},
 	},
 })
+vim.api.nvim_set_hl(0, "DiagnosticDeprecated", { strikethrough = true, fg = "#808080" })
