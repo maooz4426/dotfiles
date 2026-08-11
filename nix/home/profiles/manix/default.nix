@@ -12,6 +12,7 @@
   imports = [
     ../../modules/tmux.nix
     ../../modules/git.nix
+    ../../modules/starship.nix
   ];
 
   home.stateVersion = "25.05";
