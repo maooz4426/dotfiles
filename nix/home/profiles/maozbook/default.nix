@@ -48,6 +48,11 @@
     pkgs.argocd # Argo CD CLI
     pkgs.pinact
     pkgs.cloudflared
+    pkgs.ghc # Haskellコンパイラ
+    pkgs.cabal-install # Haskellビルドツール
+    pkgs.haskell-language-server # Haskell LSP
+    pkgs.fourmolu # Haskellフォーマッタ
+    pkgs.hlint # Haskellリンタ
   ];
 
   # NixのclangdラッパーがCPLUS_INCLUDE_PATHを汚染する問題を回避するためのclangd設定

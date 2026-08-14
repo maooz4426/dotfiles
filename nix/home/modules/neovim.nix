@@ -73,6 +73,7 @@
               p.terraform
               p.java
               p.c_sharp
+              p.haskell
             ]))
             telescope-nvim
             toggleterm-nvim

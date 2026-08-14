@@ -8,6 +8,7 @@ return {
         lua = { "stylua" },
         go = { "goimports" },
         cs = { "csharpier" },
+        haskell = { "fourmolu" },
       },
       format_on_save = {
         timeout_ms = 500,
