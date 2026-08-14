@@ -29,6 +29,7 @@ return {
             "yaml",
             "terraform",
             "c_sharp",
+            "haskell",
         },
     }
 }
