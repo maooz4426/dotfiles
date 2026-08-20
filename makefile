@@ -1,24 +1,24 @@
-.PHONY: nix/build nix/check
+.PHONY: nix/build/mac nix/build/manix nix/build/wsl nix/check/mac nix/check/manix nix/check/wsl
 
 nix/build/mac:
-	sudo nix run nix-darwin -- switch --flake ./nix/flake.nix
+	sudo nix run nix-darwin -- switch --flake .#MAOZBook
 
 nix/build/manix:
-	sudo nixos-rebuild switch --flake ./nix#manix
+	sudo nixos-rebuild switch --flake .#manix
 
 nix/build/wsl:
-	nix run nixpkgs#home-manager -- switch -b backup --flake ./nix#maoz@wslnix
+	nix run nixpkgs#home-manager -- switch -b backup --flake .#maoz@wslnix
 
 nix/check/mac:
-	nix build ./nix#darwinConfigurations.MAOZBook.system \
+	nix build .#darwinConfigurations.MAOZBook.system \
 		--no-link --print-build-logs
 
 nix/check/manix:
-	nix build ./nix#nixosConfigurations.manix.config.system.build.toplevel \
+	nix build .#nixosConfigurations.manix.config.system.build.toplevel \
 		--no-link --print-build-logs
 
 nix/check/wsl:
-	nix build ./nix#homeConfigurations."maoz@wslnix".activationPackage \
+	nix build .#homeConfigurations."maoz@wslnix".activationPackage \
 		--no-link --print-build-logs
 
 

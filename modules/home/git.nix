@@ -13,11 +13,9 @@
         email = "maooz4426@gmail.com";
       };
       core = {
-        excludesfile = "/Users/maoz/.gitignore_global";
         editor = "nvim";
         hooksPath = "~/.config/git/hooks";
       };
-      commit.template = "/Users/maoz/.stCommitMsg";
       color.status = "auto";
       "color \"status\"" = {
         added = "red";

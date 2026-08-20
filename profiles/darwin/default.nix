@@ -1,18 +1,18 @@
 # macOSシステムレベルの設定。nix-darwinで管理する。
 # ユーザー設定（home-manager）とは異なり、OS全体に影響する設定をここに書く。
-{ ... }:
+{ username, homedir, ... }:
 {
   imports = [
-    ./modules/borders.nix
+    ../../modules/darwin/borders.nix
   ];
 
   # nix-darwinのnix管理を無効化（Determinate Nixを使用しているため）
   nix.enable = false;
 
   system.stateVersion = 5;
-  system.primaryUser = "maoz";
+  system.primaryUser = username;
 
-  users.users.maoz.home = "/Users/maoz";
+  users.users.${username}.home = homedir;
 
   # sudoでTouch IDを使えるようにする
   security.pam.services.sudo_local = {
@@ -28,25 +28,5 @@
   homebrew = {
     enable = true;
     brews = [ ];
-    casks = [
-      "alt-tab"
-      "parsec"
-      "1password"
-      "raycast"
-      "ghostty"
-      "mactex-no-gui"
-      "thunderbird"
-      "gcloud-cli"
-      "postman"
-      "cursor"
-      "zotero"
-      "session-manager-plugin"
-      "karabiner-elements"
-      "google-chrome"
-      "discord"
-      "obs"
-      "claude"
-      "dotnet-sdk"
-    ];
   };
 }
