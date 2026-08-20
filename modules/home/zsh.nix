@@ -1,4 +1,5 @@
-# Zshの設定。
+# Zshの共通設定。全ホストで使うプラグイン・関数だけを置く。
+# macOS固有の初期化（nvm/rbenv/pyenv等）は profiles/maozbook/home.nix に書く。
 { pkgs, ... }:
 {
   programs.zsh = {
@@ -19,12 +20,9 @@
 
     sessionVariables = {
       GOPATH = "$HOME/go";
-      PYENV_ROOT = "$HOME/.pyenv";
     };
 
     initContent = ''
-      export JAVA_HOME="${pkgs.jdk21.home}"
-
       # yazi
       function yz() {
           tmp="$(mktemp -t "yazi-cwd.XXXXX")"
@@ -34,33 +32,10 @@
           fi
           rm -f -- "$tmp"
       }
-
-      # タイトルバー
-      precmd() { print -Pn "\e]0;%~\a" }
-
-      # nvm
-      export NVM_DIR="$HOME/.nvm"
-      [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
-      [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-
-      # rbenv
-      eval "$(rbenv init - zsh)"
-
-      # pyenv
-      export PATH="$PYENV_ROOT/bin:$PATH"
-      eval "$(pyenv init -)"
-
-      # cargo
-      [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-
     '';
   };
 
   home.sessionPath = [
-    "$HOME/.bun/bin"
     "$HOME/go/bin"
-    "$HOME/.rbenv/bin"
-    "$HOME/.yarn/bin"
-    "/opt/homebrew/opt/mysql-client/bin"
   ];
 }

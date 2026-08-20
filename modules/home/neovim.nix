@@ -16,7 +16,7 @@
     enable = true;
     packageNames = [ "myNvim" ];
 
-    luaPath = ../../../nvim;
+    luaPath = ../../nvim;
 
     categoryDefinitions.replace = (
       { pkgs, ... }:

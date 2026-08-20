@@ -15,7 +15,7 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@v14
       - uses: DeterminateSystems/magic-nix-cache-action@v8
       - name: Check flake evaluates
-        run: nix flake check ./nix --no-build
+        run: nix flake check . --no-build
       - name: Build NixOS system closure
         run: make nix/check/manix
 
@@ -27,6 +27,6 @@ jobs:
   #     - uses: DeterminateSystems/nix-installer-action@v14
   #     - uses: DeterminateSystems/magic-nix-cache-action@v8
   #     - name: Check flake evaluates
-  #       run: nix flake check ./nix --no-build
+  #       run: nix flake check . --no-build
   #     - name: Build darwin system closure
   #       run: make nix/check/mac

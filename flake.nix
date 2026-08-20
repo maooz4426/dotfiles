@@ -54,7 +54,6 @@
       nixosHostname = "manix";
       nixosSystem = "x86_64-linux";
       nixosHomedir = "/home/${username}";
-      nixosPkgs = import nixpkgs { system = nixosSystem; };
 
       wslHostname = "wslnix";
       wslSystem = "x86_64-linux";
@@ -65,17 +64,17 @@
         system = darwinSystem;
         pkgs = darwinPkgs;
         modules = [
-          ./systems/darwin/default.nix
+          ./profiles/maozbook
 
           # home-managerをnix-darwinに統合する
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./home/profiles/maozbook/default.nix;
+            home-manager.users.${username} = import ./profiles/maozbook/home.nix;
             home-manager.extraSpecialArgs = {
-              inherit nixCats;
-              dotfilesDir = "${darwinHomedir}/dotfiles";
+              inherit nixCats username;
+              homedir = darwinHomedir;
             };
           }
         ];
@@ -89,15 +88,18 @@
       nixosConfigurations."${nixosHostname}" = nixpkgs.lib.nixosSystem {
         system = nixosSystem;
         modules = [
-          ./systems/nixos/default.nix
+          ./profiles/nixos
 
           # home-managerをNixOSに統合する
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./home/profiles/manix/default.nix;
-            home-manager.extraSpecialArgs = { inherit nixCats claude-code; };
+            home-manager.users.${username} = import ./profiles/nixos/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit nixCats claude-code username;
+              homedir = nixosHomedir;
+            };
           }
         ];
 
@@ -111,14 +113,17 @@
         system = wslSystem;
         modules = [
           nixos-wsl.nixosModules.default
-          ./systems/wsl/default.nix
+          ./profiles/wsl
 
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./home/profiles/wsl/default.nix;
-            home-manager.extraSpecialArgs = { inherit nixCats claude-code; };
+            home-manager.users.${username} = import ./profiles/wsl/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit nixCats claude-code username;
+              homedir = wslHomedir;
+            };
           }
         ];
 
@@ -131,14 +136,18 @@
       homeConfigurations."${username}@${wslHostname}" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = wslSystem;
-          config.allowUnfreePredicate = pkg:
+          config.allowUnfreePredicate =
+            pkg:
             builtins.elem (nixpkgs.lib.getName pkg) [
               "claude-code"
               "google-cloud-sdk"
             ];
         };
-        modules = [ ./home/profiles/wsl/default.nix ];
-        extraSpecialArgs = { inherit nixCats claude-code; };
+        modules = [ ./profiles/wsl/home.nix ];
+        extraSpecialArgs = {
+          inherit nixCats claude-code username;
+          homedir = wslHomedir;
+        };
       };
     };
 }

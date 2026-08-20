@@ -3,7 +3,7 @@ set -e
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 HOSTNAME="${1:-$(scutil --get LocalHostName 2>/dev/null || hostname -s)}"
-FLAKE="$DOTFILES_DIR/nix#$HOSTNAME"
+FLAKE="$DOTFILES_DIR#$HOSTNAME"
 
 echo "Using profile: $HOSTNAME"
 
