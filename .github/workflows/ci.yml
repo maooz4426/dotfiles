@@ -3,8 +3,20 @@ name: CI
 on:
   push:
     branches: [main]
+    paths:
+      - "**/*.nix"
+      - "flake.lock"
+      - ".github/workflows/ci.yml"
   pull_request:
     branches: [main]
+    paths:
+      - "**/*.nix"
+      - "flake.lock"
+      - ".github/workflows/ci.yml"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   nixos:
