@@ -56,6 +56,8 @@
   };
 
   programs.zsh.initContent = ''
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
     export JAVA_HOME="${pkgs.jdk21.home}"
 
     # タイトルバー

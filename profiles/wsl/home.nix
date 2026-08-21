@@ -10,6 +10,7 @@
   imports = [
     ../../modules/home
     ../../modules/home/neovim.nix
+    ../../modules/home/nixvim.nix
   ];
 
   home.packages = [

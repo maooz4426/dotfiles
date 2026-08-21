@@ -21,6 +21,8 @@
 
     # nixCatsはNeovimのプラグイン管理フレームワーク
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    # nixvimはNeovimの設定をNixのモジュールとして宣言する（nixCatsからの移行先）
+    nixvim.url = "github:nix-community/nixvim";
     # claude-code: Claude Code CLIツール（Nix native binary）
     claude-code = {
       url = "github:sadjow/claude-code-nix";
@@ -41,6 +43,7 @@
       home-manager,
       nix-darwin,
       nixCats,
+      nixvim,
       claude-code,
       nixos-wsl,
     }:
@@ -49,7 +52,12 @@
       darwinHostname = "MAOZBook";
       darwinSystem = "aarch64-darwin"; # Apple Silicon Mac
       darwinHomedir = "/Users/${username}";
-      darwinPkgs = import nixpkgs { system = darwinSystem; };
+      darwinPkgs = import nixpkgs {
+        system = darwinSystem;
+        # nixvimのclaudecodeプラグインがclaude-codeパッケージ（unfree）に依存する
+        config.allowUnfreePredicate =
+          pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "claude-code" ];
+      };
 
       nixosHostname = "manix";
       nixosSystem = "x86_64-linux";
@@ -73,7 +81,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./profiles/maozbook/home.nix;
             home-manager.extraSpecialArgs = {
-              inherit nixCats username;
+              inherit nixCats nixvim username;
               homedir = darwinHomedir;
             };
           }
@@ -97,7 +105,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./profiles/nixos/home.nix;
             home-manager.extraSpecialArgs = {
-              inherit nixCats claude-code username;
+              inherit nixCats nixvim claude-code username;
               homedir = nixosHomedir;
             };
           }
@@ -121,7 +129,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./profiles/wsl/home.nix;
             home-manager.extraSpecialArgs = {
-              inherit nixCats claude-code username;
+              inherit nixCats nixvim claude-code username;
               homedir = wslHomedir;
             };
           }
@@ -145,7 +153,7 @@
         };
         modules = [ ./profiles/wsl/home.nix ];
         extraSpecialArgs = {
-          inherit nixCats claude-code username;
+          inherit nixCats nixvim claude-code username;
           homedir = wslHomedir;
         };
       };

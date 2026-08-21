@@ -6,6 +6,7 @@
   imports = [
     ../../modules/home
     ../../modules/home/neovim.nix
+    ../../modules/home/nixvim.nix
     ../../modules/home/ghostty.nix
     ../../modules/home/karabiner.nix
   ];
