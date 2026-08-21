@@ -23,9 +23,9 @@ jobs:
     name: Build NixOS (manix)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@v14
-      - uses: DeterminateSystems/magic-nix-cache-action@v8
+      - uses: actions/checkout@v7
+      - uses: DeterminateSystems/nix-installer-action@v22
+      - uses: DeterminateSystems/magic-nix-cache-action@v14
       - name: Check flake evaluates
         run: nix flake check . --no-build
       - name: Build NixOS system closure
@@ -35,9 +35,9 @@ jobs:
   #   name: Build nix-darwin (MAOZBook)
   #   runs-on: macos-14
   #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: DeterminateSystems/nix-installer-action@v14
-  #     - uses: DeterminateSystems/magic-nix-cache-action@v8
+  #     - uses: actions/checkout@v7
+  #     - uses: DeterminateSystems/nix-installer-action@v22
+  #     - uses: DeterminateSystems/magic-nix-cache-action@v14
   #     - name: Check flake evaluates
   #       run: nix flake check . --no-build
   #     - name: Build darwin system closure
