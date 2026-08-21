@@ -21,23 +21,13 @@
     pkgs.kubectl # Kubernetes CLI
     pkgs.k9s # Kubernetes TUI
     pkgs.kubernetes-helm # helm
-    pkgs.helm-ls # Helmチャート用LSP
     pkgs.argocd # Argo CD CLI
     pkgs.pinact
     pkgs.cloudflared
     pkgs.ghc # Haskellコンパイラ
     pkgs.cabal-install # Haskellビルドツール
-    pkgs.haskell-language-server # Haskell LSP
-    pkgs.fourmolu # Haskellフォーマッタ
     pkgs.hlint # Haskellリンタ
   ];
-
-  # NixのclangdラッパーがCPLUS_INCLUDE_PATHを汚染する問題を回避するためのclangd設定
-  xdg.configFile."clangd/config.yaml".text = ''
-    CompileFlags:
-      Add:
-        - -std=c++17
-  '';
 
   programs.java = {
     enable = true;
