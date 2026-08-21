@@ -2,16 +2,6 @@
 
 Nix flake ベースのdotfiles。macOS・NixOS・WSL2 を1つのflakeで管理する。
 
-## 対応ホスト
-
-| ホスト | 種別 | flake出力 | 適用コマンド |
-|---|---|---|---|
-| `MAOZBook` | macOS / nix-darwin | `darwinConfigurations.MAOZBook` | `make nix/build/mac` |
-| `manix` | NixOS (Proxmox LXC) | `nixosConfigurations.manix` | `make nix/build/manix` |
-| `wslnix` | NixOS-WSL | `nixosConfigurations.wslnix` | - |
-| `maoz@wslnix` | 単体home-manager | `homeConfigurations."maoz@wslnix"` | `make nix/build/wsl` |
-
-`make nix/build/wsl` は単体home-manager構成（`maoz@wslnix`）を適用する。`nixosConfigurations.wslnix` に対応するmakeターゲットは無い。
 
 ## ディレクトリ構成
 
