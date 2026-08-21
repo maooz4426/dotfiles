@@ -2,14 +2,12 @@
 # systemdが無効のためssh-agentはzsh initで起動する。
 {
   pkgs,
-  nixCats,
   claude-code,
   ...
 }:
 {
   imports = [
     ../../modules/home
-    ../../modules/home/neovim.nix
     ../../modules/home/nixvim.nix
   ];
 
