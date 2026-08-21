@@ -7,6 +7,12 @@
 # extraPackages に足す必要がない。
 { pkgs, lib, ... }:
 {
+  # lsp.servers.*は各サーバーの有効化・設定のみを行い、filetypes/root_dirの
+  # デフォルト定義は持たない。それらはnvim-lspconfigが提供するため、
+  # ここで明示的に有効化する。無効のままだとfiletypesが未定義になり、
+  # 全サーバーが.git配下の任意のファイルにアタッチしてしまう。
+  plugins.lspconfig.enable = true;
+
   lsp.servers = {
     # 全サーバ共通のcapabilities（nvim-cmpの補完対応を有効化）
     "*".config.capabilities = lib.nixvim.mkRaw "require('cmp_nvim_lsp').default_capabilities()";
