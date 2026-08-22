@@ -1,4 +1,6 @@
-# 全プロファイル共通のCLIツール・LSP群。
+# 全プロファイル共通のCLIツール。
+# LSPサーバーはnvimが lsp.servers.*.enable から自動で用意するため、ここには置かない
+# （modules/home/nixvim/lsp.nix を参照）。
 { pkgs, ... }:
 {
   programs.go.enable = true;
@@ -7,12 +9,6 @@
   home.packages = with pkgs; [
     yazi
     gcc
-    clang-tools
     gitleaks
-    lua-language-server
-    typescript-language-server
-    gopls
-    nil
-    terraform-ls
   ];
 }
