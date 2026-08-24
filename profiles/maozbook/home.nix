@@ -67,6 +67,9 @@
 
     # cargo
     [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+    # Jetbrains
+    export PATH="$PATH:$HOME/Applications/IntelliJ IDEA.app/Contents/MacOS"
   '';
 
   home.sessionPath = [
