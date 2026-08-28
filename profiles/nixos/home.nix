@@ -32,5 +32,9 @@
     };
   };
 
-  services.ssh-agent.enable = true;
+  # keychainでssh-agentを起動し、鍵をシェル間で再利用する。
+  programs.keychain = {
+    enable = true;
+    keys = [ "id_ed25519" ];
+  };
 }
