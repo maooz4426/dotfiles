@@ -5,6 +5,7 @@
   lib,
   modulesPath,
   username,
+  claude-code,
   ...
 }:
 {
@@ -84,6 +85,9 @@
       "claude-code"
       "google-cloud-sdk"
     ];
+
+  # pkgs.claude-codeをclaude-code-nix版に差し替える（理由はflake.nixのdarwinPkgsを参照）
+  nixpkgs.overlays = [ claude-code.overlays.default ];
 
   fonts.packages = [ pkgs.nerd-fonts.hack ];
 

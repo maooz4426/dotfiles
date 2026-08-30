@@ -4,7 +4,6 @@
   pkgs,
   config,
   lib,
-  claude-code,
   ...
 }:
 {
@@ -19,8 +18,6 @@
     pkgs.google-cloud-sdk
     pkgs.claude-code
   ];
-
-  nixpkgs.overlays = [ claude-code.overlays.default ];
 
   programs.ssh = {
     enable = true;

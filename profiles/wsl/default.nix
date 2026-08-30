@@ -1,6 +1,12 @@
 # WSL2上のNixOSシステム設定。
 # manixと異なりブートローダーとhardware-configurationは不要。
-{ pkgs, lib, username, ... }:
+{
+  pkgs,
+  lib,
+  username,
+  claude-code,
+  ...
+}:
 {
   wsl.enable = true;
   wsl.defaultUser = username;
@@ -35,6 +41,9 @@
       "claude-code"
       "google-cloud-sdk"
     ];
+
+  # pkgs.claude-codeをclaude-code-nix版に差し替える（理由はflake.nixのdarwinPkgsを参照）
+  nixpkgs.overlays = [ claude-code.overlays.default ];
 
   system.stateVersion = "25.05";
 }

@@ -1,12 +1,16 @@
 # macOS汎用のhome-manager設定。
 # 別のMacを新規セットアップしても欲しいものをここに置く。
 # 機種固有の設定（Cask一覧・開発環境等）はprofiles/maozbook/home.nixに書く。
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../../modules/home
     ../../modules/home/nixvim.nix
     ../../modules/home/ghostty.nix
     ../../modules/home/karabiner.nix
+  ];
+
+  home.packages = [
+    pkgs.claude-code # Claude Code CLI
   ];
 }

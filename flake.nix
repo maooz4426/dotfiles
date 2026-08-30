@@ -51,9 +51,12 @@
       darwinHomedir = "/Users/${username}";
       darwinPkgs = import nixpkgs {
         system = darwinSystem;
-        # nixvimのclaudecodeプラグインがclaude-codeパッケージ（unfree）に依存する
-        config.allowUnfreePredicate =
-          pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "claude-code" ];
+        # pkgs.claude-codeをnixpkgs版からclaude-code-nix版に差し替える。
+        # claude-code-nixは毎時自動更新するため、nixpkgsより新しい版が手に入る。
+        # https://github.com/sadjow/claude-code-nix#using-overlay
+        overlays = [ claude-code.overlays.default ];
+        # claude-codeはunfreeのため明示的に許可する
+        config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "claude-code" ];
       };
 
       nixosHostname = "manix";
@@ -102,14 +105,14 @@
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./profiles/nixos/home.nix;
             home-manager.extraSpecialArgs = {
-              inherit nixvim claude-code username;
+              inherit nixvim username;
               homedir = nixosHomedir;
             };
           }
         ];
 
         specialArgs = {
-          inherit username;
+          inherit claude-code username;
           homedir = nixosHomedir;
         };
       };
@@ -126,14 +129,14 @@
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./profiles/wsl/home.nix;
             home-manager.extraSpecialArgs = {
-              inherit nixvim claude-code username;
+              inherit nixvim username;
               homedir = wslHomedir;
             };
           }
         ];
 
         specialArgs = {
-          inherit username;
+          inherit claude-code username;
           homedir = wslHomedir;
         };
       };
@@ -141,6 +144,8 @@
       homeConfigurations."${username}@${wslHostname}" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = wslSystem;
+          # pkgs.claude-codeをclaude-code-nix版に差し替える（理由はflake.nixのdarwinPkgsを参照）
+          overlays = [ claude-code.overlays.default ];
           config.allowUnfreePredicate =
             pkg:
             builtins.elem (nixpkgs.lib.getName pkg) [
@@ -150,7 +155,7 @@
         };
         modules = [ ./profiles/wsl/home.nix ];
         extraSpecialArgs = {
-          inherit nixvim claude-code username;
+          inherit nixvim username;
           homedir = wslHomedir;
         };
       };
