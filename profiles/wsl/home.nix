@@ -2,7 +2,6 @@
 # systemdが無効のためssh-agentはzsh initで起動する。
 {
   pkgs,
-  claude-code,
   ...
 }:
 {
@@ -16,8 +15,6 @@
     pkgs.google-cloud-sdk
     pkgs.claude-code
   ];
-
-  nixpkgs.overlays = [ claude-code.overlays.default ];
 
   programs.ssh = {
     enable = true;
