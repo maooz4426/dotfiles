@@ -34,6 +34,12 @@
     package = pkgs.jdk21;
   };
 
+  # ディレクトリごとの環境変数を読み込む。nix-direnvがflake環境をキャッシュする。
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   # macOS固有のgit設定（Linuxホストには存在しないパスのため共通モジュールには置かない）
   programs.git.settings = {
     core.excludesfile = "${config.home.homeDirectory}/.gitignore_global";
