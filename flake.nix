@@ -27,6 +27,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # codex-cli: OpenAI Codex CLIツール（Nix native binary）
+    codex-cli = {
+      url = "github:sadjow/codex-cli-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # WSL2上でNixOSを動かすためのモジュール
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
@@ -42,6 +48,7 @@
       nix-darwin,
       nixvim,
       claude-code,
+      codex-cli,
       nixos-wsl,
     }:
     let
@@ -54,7 +61,11 @@
         # pkgs.claude-codeをnixpkgs版からclaude-code-nix版に差し替える。
         # claude-code-nixは毎時自動更新するため、nixpkgsより新しい版が手に入る。
         # https://github.com/sadjow/claude-code-nix#using-overlay
-        overlays = [ claude-code.overlays.default ];
+        # pkgs.codexも同じ理由でcodex-cli-nix版に差し替える。
+        overlays = [
+          claude-code.overlays.default
+          codex-cli.overlays.default
+        ];
         # claude-codeはunfreeのため明示的に許可する
         config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "claude-code" ];
       };
