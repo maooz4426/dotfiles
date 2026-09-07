@@ -12,5 +12,6 @@
 
   home.packages = [
     pkgs.claude-code # Claude Code CLI
+    pkgs.codex # OpenAI Codex CLI
   ];
 }
