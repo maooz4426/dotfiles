@@ -23,5 +23,6 @@
     "obs"
     "claude"
     "dotnet-sdk"
+    "unity-cli"
   ];
 }
