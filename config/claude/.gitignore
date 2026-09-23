@@ -2,8 +2,6 @@
 *
 
 !.gitignore
-!.github/
-!.github/**
 !README.md
 !settings.json
 !skills/

@@ -13,7 +13,6 @@ in
 {
   home.file = {
     ".claude/.gitignore".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/.gitignore";
-    ".claude/.github".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/.github";
     ".claude/README.md".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/README.md";
     ".claude/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/settings.json";
     ".claude/skills/pr".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/skills/pr";
