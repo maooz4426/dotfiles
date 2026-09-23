@@ -12,8 +12,6 @@ let
 in
 {
   home.file = {
-    ".claude/.gitignore".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/.gitignore";
-    ".claude/README.md".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/README.md";
     ".claude/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/settings.json";
     ".claude/skills/pr".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/skills/pr";
     ".claude/CLAUDE.md".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/CLAUDE.md";
