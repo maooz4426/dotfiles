@@ -9,6 +9,7 @@
     ./starship.nix
     ./zsh.nix
     ./cli.nix
+    ./claude.nix
   ];
 
   home.stateVersion = "25.05";

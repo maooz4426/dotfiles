@@ -1,0 +1,12 @@
+# 全て無視して、追跡したいものだけ許可
+*
+
+!.gitignore
+!.github/
+!.github/**
+!README.md
+!settings.json
+!skills/
+!skills/**
+skills/synced/
+!CLAUDE.md

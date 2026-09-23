@@ -94,6 +94,7 @@
             home-manager.extraSpecialArgs = {
               inherit nixvim username;
               homedir = darwinHomedir;
+              dotfilesDir = "${darwinHomedir}/dotfiles";
             };
           }
         ];
@@ -118,6 +119,7 @@
             home-manager.extraSpecialArgs = {
               inherit nixvim username;
               homedir = nixosHomedir;
+              dotfilesDir = "${nixosHomedir}/dotfiles";
             };
           }
         ];
@@ -142,6 +144,7 @@
             home-manager.extraSpecialArgs = {
               inherit nixvim username;
               homedir = wslHomedir;
+              dotfilesDir = "${wslHomedir}/dotfiles";
             };
           }
         ];
@@ -168,6 +171,7 @@
         extraSpecialArgs = {
           inherit nixvim username;
           homedir = wslHomedir;
+          dotfilesDir = "${wslHomedir}/dotfiles";
         };
       };
     };
