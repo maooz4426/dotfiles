@@ -24,5 +24,6 @@
     "claude"
     "dotnet-sdk"
     "unity-cli"
+    "chatgpt"
   ];
 }
