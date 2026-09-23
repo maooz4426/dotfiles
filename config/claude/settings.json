@@ -1,0 +1,30 @@
+{
+  "model": "sonnet",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "input=$(cat); msg=$(printf '%s' \"$input\" | jq -r '.message // \"通知\"'); osascript -e 'on run {m}' -e 'display notification m with title \"Claude Code\" sound name \"Glass\"' -e 'end run' \"$msg\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"作業が完了しました。\" with title \"Claude Code\" sound name \"Glass\"'"
+          }
+        ]
+      }
+    ]
+  },
+  "tui": "fullscreen",
+  "theme": "dark-daltonized",
+  "agentPushNotifEnabled": true
+}
