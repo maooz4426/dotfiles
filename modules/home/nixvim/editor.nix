@@ -8,29 +8,27 @@
       indent.enable = true;
       folds.enable = true;
     };
-    grammarPackages =
-      with config.plugins.treesitter.package.builtGrammars;
-      [
-        go
-        bash
-        c
-        diff
-        html
-        javascript
-        json
-        lua
-        luadoc
-        luap
-        markdown
-        python
-        toml
-        tsx
-        typescript
-        yaml
-        terraform
-        c_sharp
-        haskell
-      ];
+    grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
+      go
+      bash
+      c
+      diff
+      html
+      javascript
+      json
+      lua
+      luadoc
+      luap
+      markdown
+      python
+      toml
+      tsx
+      typescript
+      yaml
+      terraform
+      c_sharp
+      haskell
+    ];
   };
 
   plugins.telescope = {
@@ -69,7 +67,7 @@
     }
     {
       mode = "n";
-      key = "<C-f>";
+      key = "<leader>f";
       action = lib.nixvim.mkRaw "require('telescope.builtin').live_grep";
     }
     {
