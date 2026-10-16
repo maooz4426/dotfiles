@@ -24,7 +24,7 @@
       }
     ]
   },
+  "disableAgentView": true,
   "tui": "fullscreen",
-  "theme": "dark-daltonized",
-    "disableAgentView": true
+  "theme": "dark-daltonized"
 }

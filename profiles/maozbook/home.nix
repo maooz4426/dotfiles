@@ -28,6 +28,7 @@
     pkgs.cabal-install # Haskellビルドツール
     pkgs.hlint # Haskellリンタ
     pkgs.ripgrep
+    pkgs.alp
   ];
 
   programs.java = {
