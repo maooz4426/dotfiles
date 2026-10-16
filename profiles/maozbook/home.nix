@@ -29,6 +29,7 @@
     pkgs.hlint # Haskellリンタ
     pkgs.ripgrep
     pkgs.alp
+    pkgs.k6 # 負荷試験ツール
   ];
 
   programs.java = {
