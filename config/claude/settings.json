@@ -1,5 +1,11 @@
 {
   "model": "sonnet",
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf",
+    "OTEL_EXPORTER_OTLP_METRICS_ENDPOINT": "http://k3s.maooz4426.com/prometheus/api/v1/otlp/v1/metrics"
+  },
   "hooks": {
     "Notification": [
       {
