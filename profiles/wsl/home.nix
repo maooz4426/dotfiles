@@ -18,7 +18,7 @@
 
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
+    settings."*".AddKeysToAgent = "yes";
   };
 
   programs.zsh.initContent = ''
