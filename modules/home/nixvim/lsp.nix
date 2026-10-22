@@ -26,6 +26,11 @@
     helm_ls.enable = true;
     hls.enable = true;
 
+    rust_analyzer = {
+      enable = true;
+      package = null; # rustup component add rust-analyzer で導入したバイナリをPATH経由で使う
+    };
+
     clangd = {
       enable = true;
       # macOSではNixのラッパーがCPLUS_INCLUDE_PATHを汚染するため、query-driverで回避
@@ -115,6 +120,7 @@
         go = [ "goimports" ];
         cs = [ "csharpier" ];
         haskell = [ "fourmolu" ];
+        rust = [ "rustfmt" ];
       };
       format_on_save = {
         timeout_ms = 500;
