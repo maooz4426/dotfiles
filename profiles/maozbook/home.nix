@@ -31,6 +31,7 @@
     pkgs.ripgrep
     pkgs.alp
     pkgs.k6 # 負荷試験ツール
+    pkgs.nh
   ];
 
   programs.java = {
