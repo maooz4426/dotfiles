@@ -3,10 +3,10 @@
 # （modules/home/nixvim/lsp.nix を参照）。
 { pkgs, ... }:
 {
-  programs.go.enable = true;
   programs.gh.enable = true;
 
   home.packages = with pkgs; [
+    go_latest
     yazi
     gcc
     gitleaks
