@@ -28,6 +28,8 @@
     pkgs.cabal-install # Haskellビルドツール
     pkgs.hlint # Haskellリンタ
     pkgs.rustup # Rustツールチェーン管理（導入後 `rustup default stable` を実行）
+    pkgs.rbenv # Rubyバージョン管理
+    pkgs.ruby-build # rbenv install 用
     pkgs.ripgrep
     pkgs.alp
     pkgs.k6 # 負荷試験ツール
