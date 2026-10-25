@@ -28,11 +28,20 @@
     pkgs.cabal-install # Haskellビルドツール
     pkgs.hlint # Haskellリンタ
     pkgs.rustup # Rustツールチェーン管理（導入後 `rustup default stable` を実行）
+    pkgs.rbenv # Rubyバージョン管理
     pkgs.ripgrep
     pkgs.alp
     pkgs.k6 # 負荷試験ツール
     pkgs.nh
   ];
+
+  # nixpkgsにruby-buildがないため、rbenvのプラグインとして直接配置する（`rbenv install` 用）。
+  home.file.".rbenv/plugins/ruby-build".source = pkgs.fetchFromGitHub {
+    owner = "rbenv";
+    repo = "ruby-build";
+    rev = "v20261023";
+    hash = "sha256-Agoss83m7NI3+xpCHsqaMfjtCfXhuJcyhcBT94R2lIw=";
+  };
 
   programs.java = {
     enable = true;
@@ -51,7 +60,7 @@
     commit.template = "${config.home.homeDirectory}/.stCommitMsg";
   };
 
-  # macOS固有のzsh初期化（Homebrew版のnvm/rbenv/pyenv等）
+  # macOS固有のzsh初期化（Homebrew版のnvm/pyenv等）
   programs.zsh.sessionVariables = {
     PYENV_ROOT = "$HOME/.pyenv";
   };
@@ -85,7 +94,6 @@
 
   home.sessionPath = [
     "$HOME/.bun/bin"
-    "$HOME/.rbenv/bin"
     "$HOME/.yarn/bin"
     "/opt/homebrew/opt/mysql-client/bin"
   ];

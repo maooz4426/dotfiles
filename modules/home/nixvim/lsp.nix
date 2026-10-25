@@ -31,6 +31,11 @@
       package = null; # rustup component add rust-analyzer で導入したバイナリをPATH経由で使う
     };
 
+    ruby_lsp = {
+      enable = true;
+      package = null; # rbenvのRubyに `gem install ruby-lsp` で導入したバイナリをPATH経由で使う
+    };
+
     clangd = {
       enable = true;
       # macOSではNixのラッパーがCPLUS_INCLUDE_PATHを汚染するため、query-driverで回避
@@ -121,6 +126,7 @@
         cs = [ "csharpier" ];
         haskell = [ "fourmolu" ];
         rust = [ "rustfmt" ];
+        ruby = [ "rubocop" ];
       };
       format_on_save = {
         timeout_ms = 500;
