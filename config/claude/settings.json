@@ -32,5 +32,12 @@
   },
   "disableAgentView": true,
   "tui": "fullscreen",
-  "theme": "dark-daltonized"
+  "theme": "dark-daltonized",
+  "pluginConfigs": {
+    "cc-plugin-agents-md@builtin": {
+      "options": {
+        "instructionFiles": "claude-md-and-agents-md"
+      }
+    }
+  }
 }
