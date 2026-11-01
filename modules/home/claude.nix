@@ -16,6 +16,7 @@ in
     ".claude/skills/pr".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/skills/pr";
     ".claude/skills/ja-mode".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/skills/ja-mode";
     ".claude/skills/en-mode".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/skills/en-mode";
+    ".claude/skills/assistant-en".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/skills/assistant-en";
     ".claude/CLAUDE.md".source = config.lib.file.mkOutOfStoreSymlink "${claudeDir}/CLAUDE.md";
   };
 }
