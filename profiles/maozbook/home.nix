@@ -10,6 +10,11 @@
   imports = [ ../darwin/home.nix ];
 
   home.packages = [
+    pkgs.awscli2
+    pkgs.colima # コンテナランタイム（Docker daemon）
+    pkgs.docker # Docker CLI
+    pkgs.docker-buildx
+    pkgs.docker-compose
     pkgs.nerd-fonts.hack # Hack Nerd Font
     pkgs.mosh # モバイル向けSSHクライアント
     pkgs.mariadb.client # MySQLクライアント（CLIのみ）
@@ -95,6 +100,5 @@
   home.sessionPath = [
     "$HOME/.bun/bin"
     "$HOME/.yarn/bin"
-    "/opt/homebrew/opt/mysql-client/bin"
   ];
 }
