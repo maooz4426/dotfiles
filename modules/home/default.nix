@@ -10,6 +10,7 @@
     ./zsh.nix
     ./cli.nix
     ./claude.nix
+    ./codex.nix
   ];
 
   home.stateVersion = "25.05";
