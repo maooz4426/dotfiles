@@ -28,6 +28,11 @@
   homebrew = {
     enable = true;
     brews = [ ];
+    onActivation = {
+      autoUpdate = true; # switch時にbrew updateして最新のtapを取得する
+      upgrade = true; # 宣言済みのformula・caskを最新版に上げる
+      cleanup = "uninstall"; # 宣言外のパッケージを削除する（"zap"はアプリデータも消すので使わない）
+    };
   };
 
 }

@@ -9,5 +9,8 @@
     go_latest
     yazi
     gitleaks
+    jq
+    lazygit
+    age
   ];
 }
