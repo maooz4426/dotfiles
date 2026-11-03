@@ -5,8 +5,8 @@ allowed-tools: Bash, Read, Glob, Write, AskUserQuestion
 
 ## 現在の状態
 !`git branch --show-current`
-!`ls .github/workflows 2>/dev/null`
-!`ls go.mod package.json flake.nix makefile Makefile pyproject.toml Cargo.toml 2>/dev/null`
+!`ls .github/workflows 2>/dev/null || true`
+!`ls go.mod package.json flake.nix makefile Makefile pyproject.toml Cargo.toml 2>/dev/null || true`
 
 ## Step 1: 現状把握
 
