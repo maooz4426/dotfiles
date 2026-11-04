@@ -1,0 +1,3 @@
+[otel.metrics_exporter.otlp-http]
+endpoint = "http://k3s.maooz4426.com/otel/v1/metrics"
+protocol = "binary"
