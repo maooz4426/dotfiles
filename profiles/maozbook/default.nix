@@ -59,7 +59,6 @@
 
   # nixpkgsで配布されていないGUIアプリはHomebrewのCaskで管理する
   homebrew.casks = [
-    "alt-tab"
     "parsec"
     "1password"
     "raycast"
