@@ -1,11 +1,11 @@
 {
-  "model": "sonnet",
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
     "OTEL_METRICS_EXPORTER": "otlp",
     "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf",
     "OTEL_EXPORTER_OTLP_METRICS_ENDPOINT": "http://k3s.maooz4426.com/otel/v1/metrics"
   },
+  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -31,13 +31,13 @@
     ]
   },
   "disableAgentView": true,
-  "tui": "fullscreen",
-  "theme": "dark-daltonized",
   "pluginConfigs": {
     "cc-plugin-agents-md@builtin": {
       "options": {
         "instructionFiles": "claude-md-and-agents-md"
       }
     }
-  }
+  },
+  "tui": "fullscreen",
+  "theme": "dark-daltonized"
 }
