@@ -34,6 +34,7 @@
     "node"
     "nowplaying-cli"
     "nvm"
+    "openssl@3"
     "pnpm"
     "poppler"
     "pyenv"
