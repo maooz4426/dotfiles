@@ -31,7 +31,6 @@
     "ruff"
     "sevenzip"
     "tfenv"
-    "tflint"
     "tree"
     "xcodegen"
     # サードパーティtap
